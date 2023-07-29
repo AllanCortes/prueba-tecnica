@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddTaskComponent } from './shared/components/add-task/add-task.component';
 import { EditTaskComponent } from './shared/components/edit-task/edit-task.component';
-import { SortTasksComponent } from './shared/components/sort-tasks/sort-tasks.component';
+import { SortTasksComponent } from './pages/sort-tasks/sort-tasks.component';
 
 
 const routes: Routes = [
