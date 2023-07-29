@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="card" style="margin-top: 3rem;">
+        <div class="card-header">
+          Agregar Tarea
+        </div>
+        <div class="card-body">
+          <form [formGroup]="formTask" (ngSubmit)="sendTask()">
+            <div class="mb-3">
+              <label for="" class="form-label">Titulo</label>
+              <input type="text" class="form-control" aria-describedby="helpId" placeholder="Escriba un Titulo"
+                formControlName="title">
+              <div class="alert alert-danger mt-2 "
+                *ngIf="formTask.get('title')?.invalid && formTask.get('title')?.touched">
+                El título es requerido.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Descripción</label>
+              <textarea class="form-control" formControlName="description" placeholder="Escriba una descripción"
+                id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="alert alert-danger mt-2 "
+              *ngIf="formTask.get('description')?.invalid && formTask.get('description')?.touched">
+              La descripción es requerida.
+            </div>
+            <div class="form-group row">
+              <label for="due-date" class="col-sm-2 c col-form-label">Fecha de Vencimiento</label>
+              <div class="col-sm-9">
+                <input type="date" id="due-date" name="due-date" class="form-control"
+                  style="width: 150px; height: 30px; margin-top: 1rem;" formControlName="date">
+              </div>
+            </div>
+            <div class="d-flex mt-auto justify-content-end">
+              <button type="submit" class="btn btn-success btn me-3">Agregar</button>
+              <button type="button" routerLink="/sort-tasks" class="btn btn-primary btn">Cancelar</button>
+            </div>
+            <div class="alert alert-danger mt-2 "
+              *ngIf="formTask.get('date')?.invalid && formTask.get('date')?.touched">
+              La fecha de vencimiento es requerida.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

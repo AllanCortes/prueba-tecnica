@@ -1,0 +1,38 @@
+<div class="card" style="margin-top: 3rem;">
+  <div class="card-header">
+    <span class="me-5">Tareas</span>
+    <a class="btn btn-success me-10" routerLink="/add-task">Agregar Tarea</a>
+  </div>
+
+  <div class="card-body">
+    <div *ngIf="totalCount===0">
+      <h2>No hay tareas disponibles.</h2>
+    </div>
+    <div *ngIf="totalCount > 0 " class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Título</th>
+            <th scope="col">Descripción</th>
+            <th style="text-align: center;" scope="col">Fecha de Vencimiento </th>
+            <th style="text-align: center;" scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of Tasks">
+            <td scope="row">{{task.id}}</td>
+            <td>{{task.titulo}}</td>
+            <td style="width: 45%">{{task.descripcion}}</td>
+            <td style="text-align: center;">{{task.fecha_vencimiento | date: 'dd/MM/yyyy' }}</td>
+            <td style="text-align: center;">
+              <a class="btn btn-primary me-3" routerLink="/edit-task/{{task.id}}">Editar</a>
+              <a class="btn btn-danger" (click)="deleteTask(task.id)" role="button">Eliminar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
