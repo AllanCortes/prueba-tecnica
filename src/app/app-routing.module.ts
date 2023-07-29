@@ -8,7 +8,7 @@ import { SortTasksComponent } from './pages/sort-tasks/sort-tasks.component';
 const routes: Routes = [
 
   /* Predeterminated route*/
-  {path: '', pathMatch: 'full', redirectTo: 'add-task'},
+  {path: '', pathMatch: 'full', redirectTo: 'sort-tasks'},
   {path: 'add-task', component: AddTaskComponent },
   {path: 'edit-task/:id', component: EditTaskComponent },
   {path: 'sort-tasks', component: SortTasksComponent },
