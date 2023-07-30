@@ -15,12 +15,11 @@ export class SortTasksComponent {
 
   ngOnInit():void {
     this.crudService.getTasks().subscribe(response => {
-      if (response[0].success === 0 || !response) {
+      if (!response) {
         this.Tasks = [];
         this.totalCount = 0;
       } else {
         this.Tasks = response;
-        console.log(response[0]);
         this.totalCount = this.Tasks.length;
         console.log(this.totalCount);
       }
